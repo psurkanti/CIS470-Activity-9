@@ -19,9 +19,11 @@ jest.mock('../modules/getNextDate'.getNextDate, () => ({
 }));
 
 
-// Stub function for getPreviousDate
-// jest.mock('../modules/getPreviousDate'.getPreviousDate, () => ({
-// ..
+jest.mock('../modules/getPreviousDate'.getPreviousDate, () => ({
+  getPreviousDate: jest.fn().mockImplementation((month, day, year) => {
+    return { month: 4, day: 16, year: 2024 }; // Mocked output for 4/18/2024
+  })
+}));
 
 
 
@@ -58,7 +60,8 @@ describe('Top-Down Integration Test for the Main Function', () => {
       'Day of the Week': 'Wednesday',
       'Zodiac Sign': 'Aries',
       'Last Day of Month': 30,
-      'Friday 13th': '9/13/2024'
+      'Friday 13th': '9/13/2024',
+      'Previous Day': { month: 4, day: 16, year: 2024 }
     };
 
     // Call the main function

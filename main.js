@@ -4,6 +4,8 @@ const getNextDate = require('./modules/getNextDate');
 const getDayOfWeek = require('./modules/getDayOfWeek');
 const getZodiacSign = require('./modules/getZodiacSign');
 const friday13th = require('./modules/friday13th');
+const getPreviousDate = require('./modules/getPreviousDate');
+
 
 function main(dateUnderStudy) {
 
@@ -16,7 +18,7 @@ function main(dateUnderStudy) {
         const result = {
             'Test Date': dateUnderStudy,
             'Next Day': getNextDate(dateUnderStudy.month, dateUnderStudy.day, dateUnderStudy.year),
-             //'Previous Day': getPreviousDate(dateUnderStudy.month, dateUnderStudy.day, dateUnderStudy.year),
+             'Previous Day': getPreviousDate(dateUnderStudy.month, dateUnderStudy.day, dateUnderStudy.year),
             'Day of the Week': getDayOfWeek(dateUnderStudy.month, dateUnderStudy.day, dateUnderStudy.year),
             'Zodiac Sign': getZodiacSign(dateUnderStudy.month, dateUnderStudy.day),
             'Last Day of Month': lastDayOfMonth(dateUnderStudy.month, dateUnderStudy.year),
